@@ -1,0 +1,17 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://symfony.com/schema/dic/doctrine/doctrine-1.0.xsd">
+
+    <!-- Модель эллипсоида -->
+    <embeddable name="Maris\Symfony\Geo\Embeddable\Model\Entity\Ellipsoid">
+
+        <!-- Радиус на полюсах -->
+        <field name="polarRadius" type="float" />
+
+        <!-- Радиус на экваторе -->
+        <field name="equatorRadius" type="float" />
+
+    </embeddable>
+
+</doctrine-mapping>
