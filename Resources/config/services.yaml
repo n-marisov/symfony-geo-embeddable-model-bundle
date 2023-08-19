@@ -1,42 +1,42 @@
 services:
 
   ## Необходимо определить geo.ellipsoid
-  geo.ellipsoid:
-    parent: 'Maris\Interfaces\Geo\Model\EllipsoidInterface'
-    class: 'Maris\Symfony\Geo\Embeddable\Model\Entity\Ellipsoid'
-    arguments:
-      $polarRadius: '6356752.3142452'
-      $equatorRadius: '6378137.0'
+  #geo.ellipsoid:
+    #parent: 'Maris\Interfaces\Geo\Model\EllipsoidInterface'
+    #class: 'Maris\Symfony\Geo\Embeddable\Model\Entity\Ellipsoid'
+    #arguments:
+      #$polarRadius: '6356752.3142452'
+      #$equatorRadius: '6378137.0'
 
   # Фабрика для создания объекта границ.
-  geo.factory.bounds:
-    class: 'Maris\Interfaces\Geo\Factory\BoundsFactoryInterface'
+  #geo.factory.bounds:
+    #class: 'Maris\Interfaces\Geo\Factory\BoundsFactoryInterface'
 
 
   # Фабрика для создания декартовых координат.
-  geo.factory.cartesian:
-    class: 'Maris\Interfaces\Geo\Factory\CartesianFactoryInterface'
+  #geo.factory.cartesian:
+    #class: 'Maris\Interfaces\Geo\Factory\CartesianFactoryInterface'
 
   # Фабрика для создания географических координат.
-  geo.factory.location:
-    class: 'Maris\Interfaces\Geo\Factory\LocationFactoryInterface'
+  #geo.factory.location:
+    #class: 'Maris\Interfaces\Geo\Factory\LocationFactoryInterface'
 
 
 
-  Maris\Symfony\Geo\Embeddable\Model\Factory\BoundsFactory:
-    arguments:
-      '@geo.ellipsoid'
+  #Maris\Symfony\Geo\Embeddable\Model\Factory\BoundsFactory:
+    #arguments:
+      #'@geo.ellipsoid'
 
-  Maris\Symfony\Geo\Embeddable\Model\Factory\CartesianFactory:
-    arguments:
-      '@geo.ellipsoid'
+  #Maris\Symfony\Geo\Embeddable\Model\Factory\CartesianFactory:
+    #arguments:
+      #'@geo.ellipsoid'
 
-  Maris\Symfony\Geo\Embeddable\Model\Factory\LocationFactory:
-    arguments:
-      '@geo.ellipsoid'
+  #Maris\Symfony\Geo\Embeddable\Model\Factory\LocationFactory:
+    #arguments:
+      #'@geo.ellipsoid'
 
-  Maris\Interfaces\Geo\Factory\BoundsFactoryInterface: '@Maris\Symfony\Geo\Embeddable\Model\Factory\BoundsFactory'
+  #Maris\Interfaces\Geo\Factory\BoundsFactoryInterface: '@Maris\Symfony\Geo\Embeddable\Model\Factory\BoundsFactory'
 
-  Maris\Interfaces\Geo\Factory\CartesianFactoryInterface: '@Maris\Symfony\Geo\Embeddable\Model\Factory\CartesianFactory'
+  #Maris\Interfaces\Geo\Factory\CartesianFactoryInterface: '@Maris\Symfony\Geo\Embeddable\Model\Factory\CartesianFactory'
 
-  Maris\Interfaces\Geo\Factory\LocationFactoryInterface: '@Maris\Symfony\Geo\Embeddable\Model\Factory\LocationFactory'
+  #Maris\Interfaces\Geo\Factory\LocationFactoryInterface: '@Maris\Symfony\Geo\Embeddable\Model\Factory\LocationFactory'
