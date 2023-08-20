@@ -10,8 +10,8 @@ services:
   Maris\Interfaces\Geo\Model\EllipsoidInterface: '@Maris\Symfony\Geo\Embeddable\Model\Entity\Ellipsoid'
 
 
-  geo.ellipsoid:
-    class: 'Maris\Interfaces\Geo\Model\EllipsoidInterface'
+  #geo.ellipsoid:
+  #  class: 'Maris\Interfaces\Geo\Model\EllipsoidInterface'
 
   # Фабрика для создания объекта границ.
   #geo.factory.bounds:
@@ -26,7 +26,7 @@ services:
 
   Maris\Symfony\Geo\Embeddable\Model\Factory\LocationFactory:
     arguments:
-      $ellipsoid: '@geo.ellipsoid'
+      $ellipsoid: '@Maris\Interfaces\Geo\Model\EllipsoidInterface'
 
 
   Maris\Interfaces\Geo\Factory\LocationFactoryInterface: '@Maris\Symfony\Geo\Embeddable\Model\Factory\LocationFactory'
