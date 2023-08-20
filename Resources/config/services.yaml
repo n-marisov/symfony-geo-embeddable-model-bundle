@@ -1,12 +1,12 @@
 services:
 
   ## Необходимо определить geo.ellipsoid
-  #geo.ellipsoid:
-    #parent: 'Maris\Interfaces\Geo\Model\EllipsoidInterface'
-    #class: 'Maris\Symfony\Geo\Embeddable\Model\Entity\Ellipsoid'
-    #arguments:
-      #$polarRadius: '6356752.3142452'
-      #$equatorRadius: '6378137.0'
+  geo.ellipsoid:
+    parent: 'Maris\Interfaces\Geo\Model\EllipsoidInterface'
+    class: 'Maris\Symfony\Geo\Embeddable\Model\Entity\Ellipsoid'
+    arguments:
+      $polarRadius: '6356752.3142452'
+      $equatorRadius: '6378137.0'
 
   # Фабрика для создания объекта границ.
   #geo.factory.bounds:
@@ -18,8 +18,17 @@ services:
     #class: 'Maris\Interfaces\Geo\Factory\CartesianFactoryInterface'
 
   # Фабрика для создания географических координат.
-  #geo.factory.location:
-    #class: 'Maris\Interfaces\Geo\Factory\LocationFactoryInterface'
+
+  Maris\Symfony\Geo\Embeddable\Model\Factory\LocationFactory:
+    arguments:
+      $ellipsoid: '@geo.ellipsoid'
+
+
+  Maris\Interfaces\Geo\Factory\LocationFactoryInterface: '@Maris\Symfony\Geo\Embeddable\Model\Factory\LocationFactory'
+
+
+  geo.factory.location:
+    class: 'Maris\Interfaces\Geo\Factory\LocationFactoryInterface'
 
 
 
