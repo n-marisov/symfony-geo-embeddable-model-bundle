@@ -2,8 +2,6 @@
 
 namespace Maris\Symfony\Geo\Embeddable\Model\Entity;
 
-
-
 use Maris\Interfaces\Geo\Aggregate\LocationAggregateInterface;
 use Maris\Interfaces\Geo\Model\BoundsInterface;
 use Maris\Interfaces\Geo\Model\GeometryInterface;
@@ -99,7 +97,7 @@ class Bounds implements BoundsInterface
     public function someLocation(LocationInterface|LocationAggregateInterface $location): bool
     {
         if(is_a($location, LocationAggregateInterface::class))
-            $location = $location->getLocation();
+            $location = $location->getGeometry();
 
         return $this->getNorth() >= $location->getLatitude() && $this->getWest() <= $location->getLongitude() &&
             $this->getSouth() <= $location->getLatitude() && $this->getEast() >= $location->getLongitude();

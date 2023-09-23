@@ -46,7 +46,7 @@ class Location implements LocationInterface
 
     public function toFeature(FeatureFactoryInterface $factory): FeatureInterface
     {
-        return $factory->fromGeometry( $this );
+        return $factory->fromGeometries( $this );
     }
 
     public function getLatitude(): float

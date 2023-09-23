@@ -2,6 +2,7 @@
 
 namespace Maris\Symfony\Geo\Embeddable\Model\Factory;
 
+use Maris\Interfaces\Geo\Aggregate\LocationAggregateInterface;
 use Maris\Interfaces\Geo\Factory\LocationFactoryInterface;
 use Maris\Interfaces\Geo\Model\CartesianInterface;
 use Maris\Interfaces\Geo\Model\EllipsoidInterface;
@@ -137,4 +138,12 @@ class LocationFactory implements LocationFactoryInterface
         }
         return null;
     }
+
+    public function fromLocation(LocationInterface|LocationAggregateInterface $location): LocationInterface
+    {
+        if(is_a($location,LocationAggregateInterface::class))
+            $location = $location->getGeometry();
+        return $this->new($location->getLatitude(),$location->getLongitude());
+    }
+
 }
